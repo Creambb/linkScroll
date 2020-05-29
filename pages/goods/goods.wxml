@@ -1,72 +1,16 @@
 <view class="contain">
 <view id="header">
+<!-- 这是我写的头部组件 -->
 <header title="Bingo" />
 </view>
-	<view hidden="{{!isShowAlert}}" class="alertDetils">
-		<view class="alertDetilsBox {{isAlertShowAnimation? 'animationShowAlert' : 'animationHideAlert'}}">
-			<view class="alertTitle">{{selectItem.text}}</view>
-			<view>
-				<view class='alertTypeTitle'>颜色分类</view>
-				<block wx:for="{{selectItem.typeList}}" wx:for-list="item" wx:for-index="idx" wx:key="idx">
-					<text bindtap="selectType" data-id="{{idx}}" class="alertTypeBlock {{currentType == idx ?'typeActive':''}}">{{item}}</text>
-				</block>
-			</view>
-			<view class="alertBottomBox">
-				<text class="alertPrice">￥4.5</text>
-				<text class="alertAddCharts" bindtap="addToCharts">加入购物车</text>
-			</view>
-		</view>
-		<view bindtap="hideAlert">
-			<image class="alertCloseImg" src="../../images/goods/close.svg"></image>
-		</view>
-	</view>
 	<view id="searchBox" class="searchBox">
-
-		<!-- <text class='headerClass'>分类</text>
-
-		<text class='headerPin'>/品牌</text> -->
-		<image wx:if="{{isSearch}}" bindtap="backToGoods" class="searchBack" src="../../images/goods/previous.svg"></image>
-
 		<view class="search">
-
-			<!-- <image src='/images/搜索.png'></image> -->
 			<image src="../../images/goods/search.svg"></image>
-			<input bindinput='watchSearchWord' bindfocus="searchGoods" value='{{searchWord}}' placeholder="搜索商品"></input>
-			<image bindtap="clearSearchWord" src="../../images/goods/clear.svg"></image>
-
+			<input value='{{searchWord}}' placeholder="搜索商品"></input>
+			<image src="../../images/goods/clear.svg"></image>
 		</view>
-
-		<button class="search-button" bindtap='搜索'>搜索</button>
-
+		<button class="search-button">搜索</button>
 	</view>
-	<view class="searchList" wx:if="{{isSearch}}">
-		<view class="hotSearchBox" wx:if="{{!searchWord}}">
-			<text class="hotSearchTitle">热搜</text>
-			<block wx:for="{{hotSearchList}}" wx:for-list="item" wx:for-index="id" wx:key="id">
-				<text bindtap="onClickHotWord" data-text="{{item.text}}" class="hotSearchWord">{{item.text}}</text>
-			</block>
-		</view>
-		<scroll-view scroll-y="true" scroll-top="{{scrollTop}}" scroll-into-view="true" scroll-with-animation="true">
-			<block wx:for="{{searchList}}" wx:for-list="item" wx:for-index="id" wx:key="id">
-				<view bindtap='particulars' class='listItem' data-id='{{item.id}}'>
-					<view class='listItemSub' data-text="{{}}">
-						<view class='img'>
-							<image src='{{item.url}}'></image>
-						</view>
-						<view class='listText'>
-							<text>{{item.text}}</text>
-							<text class='money'>¥{{item.money}}</text>
-							<view>
-								<text>已售{{item.sum}}</text>
-								<image bindtap="showDetails" data-selectitem="{{item}}" class="add-image" src="../../images/goods/add.svg"></image>
-							</view>
-						</view>
-					</view>
-				</view>
-			</block>
-		</scroll-view>
-	</view>
-
 	<view class='main' hidden="{{isSearch}}">
 		<view class='left'>
 			<scroll-view scroll-y="true" class="leftScroll" scroll-into-view="true" scroll-with-animation="true">
@@ -79,10 +23,15 @@
 			</scroll-view>
 		</view>
 		<view class='right'>
+			<!-- 
+          		1. scroll-into-view="{{'inToview'+rigId}}"和下面的id="{{'inToview'+item.id}}"对应
+          		2. rigId为变量，设置rigId的值，列表会滑动到对应的id
+          		3. 注意：scroll-into-view的属性不能以数字开头
+      		-->
 			<scroll-view scroll-y="true" style="height: 1100rpx" bindscroll="scroll" scroll-top="{{scrollTop}}" scroll-into-view="{{'inToview'+rigId}}" scroll-with-animation="true">
 				<block wx:for="{{dataList}}" wx:for-list="item" wx:for-index="index" wx:key="index">
 					<view wx:if="{{item.goodsList.length != 0}}" class='itemTitle' id="{{'inToview'+item.id}}">{{item.navTitle}}</view>
-					<view bindtap='particulars' class='listItem' data-id='{{item.id}}'>
+					<view class='listItem' data-id='{{item.id}}'>
 						<block wx:for="{{item.goodsList}}" wx:for-index="idx" wx:key="idx">
 							<view class='listItemSub'>
 								<view class='img'>
@@ -93,7 +42,7 @@
 									<text class='money'>¥{{item.shopPrice}}</text>
 									<view>
 										<text>已售{{item.saleNum}}</text>
-										<image bindtap="showDetails" data-selectitem="{{item}}" class="add-image" src="../../images/goods/add.svg"></image>
+										<image class="add-image" src="../../images/goods/add.svg"></image>
 									</view>
 								</view>
 							</view>
