@@ -1,0 +1,11 @@
+<!-- <view class="halfPage"> -->
+<view class="headerContainer">
+	<!-- <image mode="top" src="{{bg}}" class="image"/>
+    <view class="arrow" bindtap="goback"></view>
+    <view class="home"></view> -->
+    <view class="headerButton">
+      <image class="headerImage" bindtap="goBack" src="{{bg}}"></image>
+    </view>
+		<text class="headerText">{{title}}</text>
+    <view class="heasderButton"></view>
+</view>

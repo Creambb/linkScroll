@@ -1,0 +1,192 @@
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  height: 20rpx;
+  color: black;
+}
+
+page {
+  width: 100%;
+  height: 100%;
+}
+
+#header {
+  height: 140rpx;
+}
+
+.contain {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  /* padding-top: 140rpx; */
+  padding-bottom: 100rpx;
+}
+
+.leftActive {
+  color: red;
+  background-color: #fff;
+}
+
+.leftInactive {
+  background-color: #F8F8F8;
+}
+
+.left-image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 8rpx;
+}
+
+.searchBox {
+  display: flex;
+  background-color: rgba(219, 219, 221, 1);
+  align-items: center;
+  height: 60rpx;
+  padding: 10rpx 0;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.searchBox .search-button {
+  /* width: auto; */
+  min-height: 50rpx;
+  line-height: 50rpx;
+  width: 15%;
+  padding: 0;
+  line-height: 1;
+  font-size: 30rpx;
+}
+
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* height: 50rpx; */
+  border-radius: 30rpx;
+  margin-left: 20rpx;
+  padding: 0 20rpx;
+  background-color: white;
+  width: 65%;
+}
+
+.search input {
+  font-size: 30rpx;
+  width: 100%;
+}
+
+.search text {
+  color: gainsboro;
+  font-family: monospace;
+  font-size: 30rpx;
+  line-height: 46rpx;
+}
+
+.search image {
+  padding: 0 5rpx;
+  width: 46rpx;
+  height: 46rpx;
+}
+
+.main {
+  display: flex;
+  padding-top: 80rpx;
+}
+
+.left {
+  width: 25%
+}
+
+.left view {
+  width: 180rpx;
+  height: 70rpx;
+  padding-top: 30rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+
+.right {
+  width: 75%;
+}
+
+.listItemSub {
+  display: flex;
+}
+
+.listItem .img {
+  width: 200rpx;
+  height: 200rpx;
+  text-align: center;
+  padding-top: 10rpx;
+}
+
+.listItem .img image {
+  width: 80%;
+  height: 80%;
+  background-color: #eee;
+}
+
+.itemTitle {
+  font-size: 32rpx;
+  padding-left: 20rpx;
+  padding-top: 10rpx;
+  color: gray;
+}
+
+.listItem .listText {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6rpx;
+
+  width: calc(100% - 200rpx);
+}
+
+.listItem .listText view {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.listItem .listText text {
+  font-size: 34rpx;
+  margin-top: 10rpx;
+}
+
+.listItem .listText .money {
+  color: red;
+}
+
+.listItem .listText view text {
+  font-size: 28rpx;
+  color: silver;
+  margin-right: 60rpx;
+  /* add  */
+  min-width: 80px;
+  display: inline-block;
+}
+
+.listItem .listText view button {
+  background-color: red;
+  color: white;
+  padding-right: 8px;
+  padding-left: 8px;
+  padding-top: 0px;
+}
+
+.add-image {
+  width: 40rpx;
+  height: 40rpx;
+  padding-right: 20rpx;
+}
+
+.leftScroll {
+  height: 100%;
+  width: 180rpx;
+  background: #F8F8F8;
+}
+
